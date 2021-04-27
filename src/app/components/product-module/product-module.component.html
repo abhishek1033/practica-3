@@ -1,0 +1,134 @@
+<h3 class="col-sm-3 offset-sm-2">Add New Property</h3>
+<br>
+<div align="center" >
+<div align="center" >
+    <form id="ApplyPageId" name="ApplyPageId" [formGroup]="propertyForm" enctype="multipart/form-data" (ngSubmit)="onSubmitForm()" autocomplete="off">
+      <div class="form-group row">
+          <label for="inputEmail" class="col-sm-2 col-form-label">Property Name</label>
+          <div class="col-sm-3">
+              <input type="text" class="form-control" id="propNameId" placeholder="Property Name" name="property.PROPERTY_NAME"
+              [(ngModel)]="property.PROPERTY_NAME" formControlName="PROPERTY_NAME" [ngClass]="{ 'is-invalid': submitted && f.PROPERTY_NAME.errors }" >
+              
+            <div *ngIf="submitted && f.PROPERTY_NAME.errors" class="invalid-feedback">
+                <div *ngIf="f.PROPERTY_NAME.errors.required">property name is required</div>                
+            </div>            
+          </div>
+      </div>
+      <div class="form-group row">
+          <label for="inputPassword" class="col-sm-2 col-form-label">Description</label>
+          <div class="col-sm-3">
+              <textarea cols="3" class="form-control" rows="3"
+              name="property.ADDRESS"
+              [(ngModel)]="property.PROP_DESCRIPTION" formControlName="PROP_DESCRIPTION" [ngClass]="{ 'is-invalid': submitted && f.PROP_DESCRIPTION.errors }" ></textarea>
+
+            <div *ngIf="submitted && f.PROP_DESCRIPTION.errors" class="invalid-feedback">
+                <div *ngIf="f.PROP_DESCRIPTION.errors.required">Property Description is required</div>                
+            </div> 
+          </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="inputPassword" class="col-sm-2 col-form-label">Images</label>
+        <div class="col-sm-3">
+          <input             
+            id="file" 
+            type="file" 
+            name="image"
+            accept="image/*"
+            (change)="upload($event)"
+            class="form-control"
+            multiple />
+        </div>
+    </div>
+
+      <div class="form-group row">
+        <label for="inputPassword" class="col-sm-2 col-form-label">Address</label>
+        <div class="col-sm-3">
+            <textarea cols="3" class="form-control" rows="3"
+            name="property.ADDRESS"
+              [(ngModel)]="property.ADDRESS" formControlName="ADDRESS" [ngClass]="{ 'is-invalid': submitted && f.ADDRESS.errors }" ></textarea>
+
+            <div *ngIf="submitted && f.ADDRESS.errors" class="invalid-feedback">
+                <div *ngIf="f.ADDRESS.errors.required">Address is required</div>                
+            </div> 
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="inputEmail" class="col-sm-2 col-form-label">Locality/Area</label>
+        <div class="col-sm-3">
+            <input type="text" class="form-control" id="areaId" placeholder="Ex : Gota, Sarkhej, Sola" 
+            name="property.AREA"
+            [(ngModel)]="property.AREA" formControlName="AREA" [ngClass]="{ 'is-invalid': submitted && f.AREA.errors }">
+
+            <div *ngIf="submitted && f.AREA.errors" class="invalid-feedback">
+                <div *ngIf="f.AREA.errors.required">Property Area is required</div>                
+            </div>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="inputEmail" class="col-sm-2 col-form-label">Price</label>
+        <div class="col-sm-3">
+            <input type="text" class="form-control" id="priceId" placeholder="Ex: 31,51,000" 
+            name="property.PRICE"
+            [(ngModel)]="property.PRICE" formControlName="PRICE" [ngClass]="{ 'is-invalid': submitted && f.PRICE.errors }">
+
+            <div *ngIf="submitted && f.PRICE.errors" class="invalid-feedback">
+                <div *ngIf="f.PRICE.errors.required">Property Price is required</div>                
+            </div>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="inputEmail" class="col-sm-2 col-form-label">Bedroom</label>
+        <div class="col-sm-3">
+            <input type="text" class="form-control" id="bedroormId" placeholder="1, 2, 3.." 
+            name="property.BEDROOM"
+            [(ngModel)]="property.BEDROOM" formControlName="BEDROOM" [ngClass]="{ 'is-invalid': submitted && f.BEDROOM.errors }">
+
+            <div *ngIf="submitted && f.BEDROOM.errors" class="invalid-feedback">
+                <div *ngIf="f.BEDROOM.errors.required">Bedroom number is required</div>                
+            </div>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="inputEmail" class="col-sm-2 col-form-label">Bathroom</label>
+        <div class="col-sm-3">
+            <input type="text" class="form-control" id="bathId" placeholder="1, 2, 3..." 
+            name="property.BATHROOM"
+            [(ngModel)]="property.BATHROOM" formControlName="BATHROOM" [ngClass]="{ 'is-invalid': submitted && f.BATHROOM.errors }">
+
+            <div *ngIf="submitted && f.BATHROOM.errors" class="invalid-feedback">
+                <div *ngIf="f.BATHROOM.errors.required">Bathroom Number is required</div>                
+            </div>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="inputEmail" class="col-sm-2 col-form-label">Carpet Area</label>
+        <div class="col-sm-3">
+          <select id="disabledSelect" class="form-control" id="carpetAreaId"
+            name="property.CARPET_AREA"
+            [(ngModel)]="property.CARPET_AREA" formControlName="CARPET_AREA" [ngClass]="{ 'is-invalid': submitted && f.CARPET_AREA.errors }">
+            <option value="">-----select------</option>
+            <option value="Sq Ft.">Sq Ft.</option>
+            <option value="Sq Yd.">Sq Yd.</option>
+            <option value="Sq Mt.">Sq Mt.</option>
+          </select>
+
+          <div *ngIf="submitted && f.CARPET_AREA.errors" class="invalid-feedback">
+            <div *ngIf="f.CARPET_AREA.errors.required">Carpet Area is required</div>                
+        </div>
+        </div>
+      </div>
+      
+      <div class="form-group row">
+          <div class="col-sm-3 offset-sm-2">
+              <button type="submit" class="btn btn-primary">Sign in</button>
+          </div>
+      </div>
+  </form>
+</div>
+</div>

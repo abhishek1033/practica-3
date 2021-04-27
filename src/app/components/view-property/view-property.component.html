@@ -1,0 +1,32 @@
+<h2>List of property</h2>
+
+
+<table class="table">
+    <thead>
+      <tr>
+        
+        <th scope="col">Property Name</th>
+        <th scope="col">Address</th>
+        <th scope="col">Area</th>
+        <th scope="col">Price</th>
+        <th scope="col">Bedroom</th>
+        <th scope="col">Bathroom</th>
+        <th scope="col">Carpet Area</th>
+        <th scope="col">Image</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let employee of propertyList">
+         <td>{{employee.property_NAME}}</td>
+        <td>{{employee.address }}</td>
+        <td>{{employee.area }}</td>
+        <td>{{employee.price }}</td>
+        <td>{{employee.bedroom }}</td>
+        <td>{{employee.bathroom }}</td>
+        <td>{{employee.carpet_AREA }}</td>
+        <td><img src="data:image/png;base64,{{employee.image_PATH}}" height="80" width="65"></td>
+      </tr>
+      
+      
+    </tbody>
+  </table>
